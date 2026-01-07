@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="contact-info">
+                <h3 class="title">Let's get in touch</h3>
+                <p class="text">
+                    Thank you for your interest! Whether you're looking to capture memories, enhance your images, or need expert photo
+                    editing services, I'm here to help. Feel free to reach out with your ideas, project details, or any questions. Let’s
+                    create something unforgettable together!
+
+                </p>
+
+                <div class="info">
+                    <div class="information">
+                        <img src="../static/location.png" class="icon" alt="" />
+                        <p>Dnyansagar Institute of Rsearch and Management,Balewadi, pune</p>
+                    </div>
+                    <div class="information">
+                        <img src="../static/email.png" class="icon" alt="" />
+                        <p>tanujapawar0902@gmail.com</p>
+                    </div>
+                    <div class="information">
+                        <img src="../static/phone.png" class="icon" alt="" />
+                        <p>+91 8788289497</p>
+                    </div>
+                </div>
+
+                <div class="social-media">
+                    <p>Connect with us :</p>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form action="/submit" method="POST">
+                    <h3 class="title">Contact us</h3>
+                    <div class="input-container">
+                        <input type="text" name="Name" class="input" placeholder="Name" required 
+                                pattern="[A-Za-z\s]+" title="Only letters and spaces are allowed"/>
+                    </div>
+                    <div class="input-container">
+                        <input type="email" name="Email" class="input" placeholder="Email" required 
+                        pattern="^[a-z0-9._%+-]+@gmail\.com$" 
+                        title="Please enter a valid Email address (example@gmail.com)" 
+                        required/>
+                    </div>
+                    <div class="input-container">
+                        <input type="tel" name="Phone" class="input" placeholder="Phone" required
+                                pattern="[0-9]{10}" title="Enter a valid 10-digit phone number"/>
+                    </div>
+                    <div class="input-container textarea">
+                        <textarea name="Message" class="input" placeholder="Enter details of enquiry" required
+                                minlength="10" maxlength="500"></textarea>
+                    </div>
+                    {% if not message %}
+                        <input type="submit" value="Submit" class="btn" />
+                    {% endif %}
+                    
+                    {% if message %}
+                        <p class="message">{{ message | safe }}</p>
+                        <div class="home-btn-container">
+                            <a href="{{ url_for('index') }}" class="home-btn">Go to Home</a>
+                        </div>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer__bar">
+        Copyright © 2024 Manasvi Manohar Phadtare. All rights reserved.
+    </div>
+
+    <script src="../static/main.js"></script>
+</body>
+
+</html>

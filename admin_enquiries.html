@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title>Enquiries</title>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th, td {
+                border: 1px solid #ccc;
+                padding: 8px;
+            }
+
+            th {
+                background: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body> 
+        <h2>
+            {% if filter_type == 'today' %}
+                Today Enquiries
+
+            {% elif filter_type== 'week' %}
+                Weekly Enquiries
+            
+            {% elif filter_type == 'month' %}
+                Monthly Enquiries
+
+            {% else %}
+                All Enquiries
+
+            {% endif %}
+                
+        </h2>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+                <th>Date</th>
+            </tr>
+
+            {% for e in enquiries %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ e.Name }}</td>
+                <td>{{ e.Email }}</td>
+                <td>{{ e.Phone }}</td>
+                <td>{{ e.Message }}</td>
+                <td>{{ e.date_created.strftime('%d-%m-%Y %H:%M') }}</td>
+            </tr>
+            
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href = "/admin/dashboard"> <- Back to Dashboard </a>
+    </body>
+</html>

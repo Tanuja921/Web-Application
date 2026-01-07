@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Admin Dashboard</title>
+        <style> 
+            body{ font-family: arial;}
+            .dashboard {display: flex;gap: 20px;}
+            .card {
+                width: 220px;
+                padding: 20px;
+                text-align: center;
+                background: #f4f4f4;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgba(0, 0,0,0.1);    
+            }
+
+            .count {
+                font-size: 32px;
+                font-weight: bold;
+            }
+
+            .btn {
+                margin-top: 12px;
+                display: inline-block;
+                padding: 8px 14px;
+                background: #0066cc;
+                color: #fff;
+                text-decoration: none;
+                border-radius: 5px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <h2> Admin Dashboard </h2>
+        <div class = "dashboard">
+            <div class = "card">
+                <div class = "count"> {{ today_count }}</div>
+                <p> Today Enquiries </p>
+                <a href="/admin/enquiries?type=today" class ="btn" > Show Details</a>
+            </div>
+
+            <div class = "card">
+                <div class = "count"> {{ weekly_count }}</div>
+                <p> Weekly Enquiries </p>
+                <a href="/admin/enquiries?type=week" class ="btn" > Show Details</a>
+            </div>
+
+            <div class = "card">
+                <div class = "count"> {{ monthly_count }}</div>
+                <p> Monthly Enquiries </p>
+                <a href="/admin/enquiries?type=month" class ="btn" > Show Details</a>
+            </div>
+
+            <div class = "card">
+                <div class = "count"> {{ total_count }}</div>
+                <p> Total Enquiries </p>
+                <a href="/admin/enquiries?type=total" class ="btn" > Show Details</a>
+            </div>
+        
+        </div>
+    </body>
+</html>
